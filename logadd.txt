@@ -1,0 +1,87 @@
+
+	// 添加一条记录。保留5条历史记录。如果历史记录中存在相同的则标记重复次数。
+	// @param	@&log
+	// @global 	@&logmsgs[] @#logmsgc
+	// 存储格式：
+	//		类别#信息#信息#...#计数
+	IF(%@#logmsgc%==0);
+		//没有记录
+		@#logmsgc=1;
+		@&logmsgs[1]="%@&log%#1";
+	ELSE;
+		//有记录
+		#flag=0;
+		FOR(#i,1,%@#logmsgc%);
+			IFMATCHES("%@&logmsgs[%#i%]%","%@&log%#(\d+)");
+				MATCH("%@&logmsgs[%#i%]%","%@&log%#(\d+)",{&cons});
+			//重复记录
+				#count=0;
+				INC(#count,%&cons%);
+				INC(#count);
+				#k=%@#logmsgc%-1;
+				IF(%#i%<=%#k%);
+					FOR(#j,%#i%,%#k%);
+						#m=#j+1;
+						@&logmsgs[%#j%]=%@&logmsgs[%#m%]%;
+					NEXT;
+				ENDIF;
+				@&logmsgs[%@#logmsgc%]="%@&log%#%#count%";
+				#flag=1;
+				BREAK;
+			ENDIF;
+		NEXT;
+		IF(%#flag%==0);
+		//无重复记录
+			IF(%@#logmsgc%<10);
+			//添加条目
+				INC(@#logmsgc);
+				@&logmsgs[%@#logmsgc%]="%@&log%#1";
+			ELSE;
+			//已满
+				FOR(#j,1,9);
+					#m=#j+1;
+					@&logmsgs[%#j%]=%@&logmsgs[%#m%]%;
+				NEXT;
+				@&logmsgs[10]="%@&log%#1";
+			ENDIF;
+		ENDIF;
+	ENDIF;
+
+	//处理完成，显示
+	&out="";
+	FOR(#i,1,10);
+		#flag=0;
+		IFMATCHES("%@&logmsgs[%#i%]%","^SOLD#");
+			MATCH("%@&logmsgs[%#i%]%","^SOLD#([^#]+)#([^#]+)#([^#]+)#([^#]+)",{&item,&num,&price,&count});
+			&out="%&out%&7[&6出售&7] &b&l%&item%&f，每&e%&num%&f个&e$%&price%&f。&a&l(x%&count%)";
+			#flag=1;
+		ENDIF;
+		IFMATCHES("%@&logmsgs[%#i%]%","^BUY#");
+			MATCH("%@&logmsgs[%#i%]%","^BUY#([^#]+)#([^#]+)#([^#]+)#([^#]+)",{&item,&num,&price,&count});
+			&out="%&out%&7[&6购买&7] &b&l%&item%&f，每&e%&num%&f个&e$%&price%&f。&a&l(x%&count%)";
+			#flag=1;
+		ENDIF;
+		IFMATCHES("%@&logmsgs[%#i%]%","^ACQU#");
+			MATCH("%@&logmsgs[%#i%]%","^ACQU#([^#]+)#([^#]+)#([^#]+)#([^#]+)#([^#]+)",{&name,&item,&num,&price,&count});
+			&out="%&out%&7[&6收购&7] &f&l%&name%&f 卖了&b&l%&item%&f，每&e%&num%&f个&e$%&price%&f。&a&l(x%&count%)";
+			#flag=1;
+		ENDIF;
+		IFMATCHES("%@&logmsgs[%#i%]%","^SALE#");
+			MATCH("%@&logmsgs[%#i%]%","^SALE#([^#]+)#([^#]+)#([^#]+)#([^#]+)#([^#]+)",{&name,&item,&num,&price,&count});
+			&out="%&out%&7[&6出售&7] &f&l%&name%&f 购买了&b&l%&item%&f，每&e%&num%&f个&e$%&price%&f。&a&l(x%&count%)";
+			#flag=1;
+		ENDIF;
+		IFMATCHES("%@&logmsgs[%#i%]%","^CHAL#");
+			MATCH("%@&logmsgs[%#i%]%","^CHAL#([^#]+)#([^#]+)",{&name,&count});
+			&out="%&out%&7[&6任务&7] &f完成 &e&l%&name%&f。&a&l(x%&count%)";
+			#flag=1;
+		ENDIF;
+		IF(%#flag%==0);
+			IF(%@&logmsgs[%#i%]%!="");
+				MATCH("%@&logmsgs[%#i%]%","^(.*)#([^#]+)$",{&str,&count});
+				&out="%&out%&f%&str% &a&l(x%&count%)";
+			ENDIF;
+		ENDIF;
+		&out="%&out%\n";
+	NEXT;
+	SETLABEL(ingametest,%&out%);

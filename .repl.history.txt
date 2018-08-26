@@ -1,0 +1,506 @@
+SLOT(9)
+IIF()
+IIF(TRUE,.)
+KEY(USE)
+KEYDOWN(ATTACK)
+DO;KEY(ATTACK);LOOP;
+KEYDOWN(RETURN)
+$$a
+$a
+%%a
+%ticks%
+%ticks
+%TICKS%
+echo
+echo q
+echo ""
+echo 11
+echo(t)
+LOG(ss)
+LOG(%TICKS%)
+LOG(TIME())
+LOG(%a)
+TIME(%a%)
+a=1
+a=123
+LOG(%@a%)
+abc=1234
+LOG(%ab%)
+LOG(%abc%)
+ECHO(%abc%)
+LOG($$?)
+TIME(&a)
+TIME(&a,"h-m-s")
+TIME(&a,"h-M-s")
+TIME(&a,"h-i-s")
+TIME(&a,H:i:s)
+TIME(&a,"%Y%m%d%H%i%s")
+TIME(&a,"%Y%m%d%H%%s")
+TIME(&a,"Y")
+TIME(&a,"YM")
+TIME(&a,"YMD")
+TIME(&a,"YMd")
+TIME(&a,"YMd His")
+TIME(&a,"YMd Ha")
+TIME(&a,"YMd Hp")
+TIME(&a,"YMd HA")
+TIME(&a,"YMd Hb")
+TIME(&a,"YMd Hc")
+TIME(&a,"YMd Hn")
+TIME(&a,"YMd Hi")
+TIME(&a,"a")
+TIME(&a,"ai")
+TIME(&a,"%i")
+TIME(&a,"%Y")
+TIME(&a,"\Y")
+TIME(&a,"#Y")
+TIME(&a,"I")
+TIME(&a,"%")
+TIME(&a,"T")
+TIME(&a,"p")
+TIME(&a,"z")
+TIME(&a,"y")
+TIME(&a,"x")
+TIME(&a,"u")
+TIME(&a,"v")
+TIME(&a,"w")
+TIME(&a,"b")
+TIME(&a,"c")
+TIME(&a,"d")
+TIME(&a,"e")
+TIME(&a,"f")
+TIME(&a,"g")
+TIME(&a,"i")
+TIME(&a,"j")
+TIME(&a,"h")
+TIME(&a,"k")
+TIME(&a,"l")
+TIME(&a,"m")
+TIME(&a,"Hms")
+TIME(&a,"H:m:s")
+CRAFT(371)
+CRAFT(371,1,1,TRUE)
+CRAFT()
+CRAFT(371,TRUE,TRUE,TRUE)
+CRAFT(5:1)
+CRAFT(5:1,1,1,1)
+CRAFTANDWAIT(5:1,1,1,1)
+GETID(-1152,147,-1539,#a)
+LOG(%#a%)
+CRAFT(planks:1,1,1,TRUE)
+CRAFT(dye:15,64,1,TRUE)
+CRAFT(dye:15,6,0,0)
+RESPAWN()
+SLOT(2)
+SLOT()
+SLOTCLICK(1,1)
+SLOTCLICK(1)
+SETSLOTITEM(planks)
+SETSLOTITEM(planks,1)
+SETSLOTITEM(planks,1,64)
+SLOT(4)
+SETSLOTITEM(planks:1,1,64)
+SLOT(3)
+CRAFT(bone_block,1)
+CRAFT(dye:15,1)
+CRAFT(dye:15,3)
+CRAFT(dye:15,9)
+CRAFT(bone_block,9)
+PLACESIGN([buy])
+a=$$?
+$$[a]
+？
+WHOAMI
+/
+///
+/dx
+~
+prompt
+prompt q
+prompt 
+aa
+$$A
+$$?
+$$m
+$m
+m
+$${}$$
+$${dddd}$$
+$${$m}$$
+echo %health%
+echo 
+echo "1"
+echo(%health%)
+echo(%HEALTH%)
+if(%HEALTH%==20)echo(aaa)
+if(%HEALTH%==20)echo(aaa)endif
+if(%HEALTH%==20)echo(aaa)ENDIF
+if(%HEALTH%==20)echo(aaa)ENDIF()
+if(%HEALTH%==20)echo(aaa);ENDIF
+if(%HEALTH%=20)echo(aaa);ENDIF
+if(%HEALTH%=20)echo("aa");ENDIF
+echo(aaa)
+IF(1==1)echo(1);ENDIF
+IF(1==1)echo(1);ELSE echo(2);ENDIF
+IF(1==1)echo(1);ELSE:echo(2);ENDIF
+IF(1==1)echo(1);ELSE;echo(2);ENDIF
+IF(1=1)echo(1);ELSE;echo(2);ENDIF
+IF(1 eq 1)echo(1);ELSE;echo(2);ENDIF
+IF(2>1)echo(1);else;echo(2);endif
+IF(2>1)echo(1);ELSE;echo(2);ENDIF
+IF(2>1)echo(112);ELSE;echo(2);ENDIF
+IF(2>1)echo(112);ELSE;echo(2121);ENDIF
+echo(121)
+IF(2>1)echo(112);ELSE;echo(2121);ENDIF;
+IF(2>1)echo(112);
+IF(2>1);
+IF(2>1);echo(121);
+IF(%HEALTH%==20);ECHO(20);ELSE;ECHO(<20);ENDIF;
+FOR(#i,0,100,1);
+FOR(#i,0,10,1);ECHO(#i);NEXT;
+FOR(#i,0,10);ECHO(#i);NEXT;
+FOR(#i,0,10);ECHO(##i);NEXT;
+FOR(#i,0,10);ECHO(%i%);NEXT;
+FOR(#i,0,10);ECHO(%#i%);NEXT;
+FOR(#i,0,10);KEY(USE);NEXT;
+GETID()
+GETSLOTITEM(0)
+GETSLOTITEM(3,3)
+GETSLOTITEM(4,4)
+GETSLOTITEM(7,7)
+GETSLOTITEM(7,#i)
+%#i%
+LOG(%#i%)
+GETSLOTITEM(1,#i)
+GETSLOTITEM(0,#i)
+GETSLOTITEM(30,#i)
+GETSLOTITEM(50,#i)
+GETSLOTITEM(28,#i)
+GETSLOT(1)
+GETSLOT(slime)
+GETSLOT(ender_pearl)
+GETSLOT(ender_pearl,#i)
+WHILE(%HEALTH%==20);
+WHILE(%HEALTH%==20);LOG(A);
+WHILE(%HEALTH%==20);LOG(A);LOOP;
+PLACESIGN
+PLACESIGN(黑曜石机,by myren,youtu.be/GyGIpRpRsY4
+PLACESIGN(黑曜石机,by myren,youtu.be/GyGIpRpRsY4)
+PLACESIGN(黑曜石机,by myren,youtu.be/,GyGIpRpRsY4)
+STOP(f9)
+isrunning(f6)
+if(isrunning(f6));then;echo "aaa";else echo "bbb";endif;
+if(isrunning(f6));then echo "aaa";else echo "bbb";endif;
+if(isrunning(f6)); echo "aaa";else echo "bbb";endif;
+if(isrunning(f6));log(aaa);else echo "bbb";endif;
+if(isrunning(f6));log(aaa);else log(bbb);endif;
+if(isrunning(f6));log(aaa);else;log(bbb);endif;
+if(isrunning(f6)==true);then;log(aaa);else;log(bbb);endif;
+if(isrunning(f6)==true);log(aaa);else;log(bbb);endif;
+if(isrunning(f6)==true)log(aaa);else log(bbb);endif;
+if(isrunning(f6)==true)log(aaa);else;log(bbb);endif;
+if(isrunning(f6)==true);log(aaa);endif;
+if(isrunning(f6)==true);log(aaa);endif;if(isrunning(f6)==false);log(bbb);endif;
+a=isrunning(f6)
+$$a=isrunning(f6)
+$a=isrunning(f6)
+$a%=isrunning(f6)
+%#a%=1
+%a%=1
+%a
+#a
+%a#%
+a#
+help
+assign a=1
+assign
+assign #a
+assign %a%
+#a=1
+%#a%
+#a=isrunning(f6)
+log(%#a%)
+#b=isrunning(f6)
+#b=isrunning(f7)
+log(%#b%)
+PLACESIGN(1)
+PLACESIGN("当然，你也可以")
+PLACESIGN("当然，你也可以","/is warp ","08a14192-c2db-3105-","8d95-9a927d6d6086")
+PLACESIGN("当然，你也可以","/is warp ","08a14192-c2db-3105-","8d95-9a927d6d6086",true)
+PLACESIGN("当然，你也可以","/is w 08a14192-c2db-",true)
+PLACESIGN("","3105-8d95-9a927d6d6086",,,true)
+PLACESIGN("当然，你也可以","/is w 08a14192-c2db-",,,true)
+TILENAME(0)
+TILENAME(4)
+TILENAME(5)
+TILENAME(5:1)
+TILENAME(5,4)
+TILENAME(5,2)
+TILENAME(2)
+TILENAME(1)
+TILENAME(1:1)
+LOG(%XPOS%)
+LOG(%TIME%)
+TIME()
+TIME(ss)
+TIME(#a,ss)
+%YPOS-#e%
+%YPOS%-%#e%
+%YPOS%-1
+%YPOS%
+LOG(%YPOS%)
+LOG(%YPOS%-1)
+LOG(%YPOS-1%)
+dec(2)
+#e=10
+dec(#e,-2)
+%#E%
+#e
+#e=-10
+dec(#e,-12)
+log(%#e%)
+key(forward)
+do(10);key(forward);while
+RAIN
+%RAIN%
+%#RAIN%
+echo a
+echo 1
+echo(1)
+echo(%#RAIN%)
+echo(%RAIN%)
+GETSLOTITEM
+GETSLOTITEM()
+GETSLOTITEM(2)
+GETSLOTITEM(3)
+GETSLOTITEM(10)
+GETSLOTITEM(14)
+HELP FILTER
+HELP PASS
+PASS
+FILTER
+%CHAT%
+LOG(&%CHAT%)
+LOG(%CHAT%)
+LOG(&7aa)
+LOG(STRIP(&7aa))
+STRIP(&7aa)
+STRIP(&a,"aa")
+&a
+STRIP(&#a,"aa")
+LOG(&#a)
+STRIP(a,"aa")
+STRIP(&a,"aaaaa")
+LOG($&a）
+LOG($&a$）
+a="aaa"
+&a="aaa"
+LOG(a)
+LOG(#a)
+LOG(#&a)
+LOG(&a)
+LOG(&a&)
+STRIP(&a,"aaaa")
+STRIP(&a,"&7&9aaaa")
+STRIP(&a,"&7&9aaa&3a")
+LOG(%&a%)
+LOG(%a%)
+%a%
+a
+ LOG(a[0])
+ LOG(%a[0]%)
+ LOG(%a(1)%)
+ LOG(%&a(1)%)
+ LOG(%#a%)
+SPLIT(",","sss,xxx,vccc",a)
+ LOG(%a%)
+LOG(%#a[1]%)
+LOG(%#a[2]%)
+#j=1
+LOG(%#j%)
+LOG(%#a[&#j%]%)
+#k=%#a[1]%
+LOG(%#k%)
+POP()
+POP(#a)
+ARRAYSIZE(#a)
+SPLIT("","sss,xxx,vccc",#a)
+SPLIT(",","sss,xxx,vccc",#a)
+LOG(#a[1])
+#b=#a[1]
+&b=#a[1]
+&b=%#a[1]%
+SPLIT(",","sss,xxx,vccc",&a)
+&b=%&a[1]%
+LOG(%&a[1]%)
+MATCH("SKY > 啊啊啊djytw啊啊啊","啊[A-Za-z]*啊",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","啊[A-Za-z]+啊",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","\w+",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","@\w+",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","@[啊]\w+",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","啊\w+",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","@啊\w+",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","啊(\w+)",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","^.*(\w+)",&test)
+MATCH("SKY > 啊啊啊djytw啊啊啊","^.*(\w+)",{&test})
+MATCH("SKY > 啊啊啊djytw啊啊啊","^SKY(\w+)",{&test})
+MATCH("SKY > 啊啊啊djytw啊啊啊","^SKY (\w+)",{&test})
+MATCH("SKY > 啊啊啊djytw啊啊啊","\w+",{&test})
+MATCH("SKY > 啊啊啊djytw啊啊啊","(\w+)(\w+)",{&test,&test2})
+MATCH("SKY > 啊啊啊djytw啊啊啊","(\w+)",{&test2})
+MATCH("SKY > 啊啊啊djytw啊啊啊",".{5}(\w+)",{&test2})
+LOG(%&test2%)
+SLOT(0)
+SLOT(1)
+GETSLOT(289）
+GETSLOT(289)
+GETSLOT(sulphur)
+GETSLOT(35)
+GETSLOT(35,#var)
+LOG(%INVSLOT%)
+GETSLOTITEM(1)
+GETSLOTITEM(4)
+GETSLOTITEM(5)
+HELP GETSLOTITEM
+GETSLOTITEM(5,#e)
+LOG(%#e%)
+SETSLOTITEM(10)
+SETSLOTITEM(13)
+SETSLOTITEM(289,1)
+ACHIEVEMENTGET(lkkk)
+POPUPMESSAGE(sss)
+SETLABEL(Item,"dsadsadads")
+ACHIEVEMENTGET()
+ACHIEVEMENTGET(a)
+ACHIEVEMENTGET(a,0)
+gui(test)
+SHOWGUI(test)
+title
+title(111)
+setlabel
+help setlabel
+SETLABEL(test,test,binding)
+SETLABEL(durability,test,binding)
+SETLABEL(boots,test,binding)
+LOG(%DIMENSION%)
+%env%
+LOG(%ENV%)
+LOG(%VARNAME%)
+LOG(%SERVERNAME%)
+LOG(%SERVERMOTD%)
+LOG(%SERVER%)
+1+1
+LOG(1+1)
+#b=1+1
+&c=64
+#b=&c
+#b=&c-1
+#b=&c+1
+#b=%&c%+1
+#b=%&c%
+#b=1
+&c=2
+INC(#b,&c)
+LOG(#b)
+INC(#b,%&c%)
+LOG(%#b%)
+&price=addd
+LOG(%&price%)
+MATCH("123addddad","^%&price%(\w+)$",{&test});
+MATCH("123addddad","^(\w+)$",{&test});
+MATCH("123addddad","^.*%&price%(\w+)$",{&test});
+LOG(%&test%)
+help if
+#a=3
+IF(%#a%==3);
+IF(%#a%==3);LOG(a);ENDIF:
+IF(%#a%==3);LOG(a);ENDIF;
+IF(%#a%<>3);LOG(a);ENDIF;
+IF(%#a%<>3);LOG(a);ELSE;LOG(b);ENDIF;
+IF(%#a%!=3);LOG(a);ELSE;LOG(b);ENDIF;
+IF(%@#logmsgc%==0);LOG(a);ENDIF;
+@#logmsgs[0]=asdasd
+@&logmsgs[0]=asdasd
+@&logmsgs[1]=asdasssssd
+%@&logmsgs[0]%
+log(%@&logmsgs[0]%)
+log(%@&logmsgs[1]%)
+help for
+FOR(#i,0,5);LOG(%#i%);NEXT;
+#j=3
+FOR(#i,0,%#j%-1);LOG(%#i%);NEXT;
+FOR(#i,0,%#j-1%);LOG(%#i%);NEXT;
+#k=%#j%-1
+For(#i,0,5);LOG(%#i%);IF(%#i%==2);#i=5;ENDIF;NEXT
+For(#i,0,5);LOG(%#i%);IF(%#i%==2);BREAK;ENDIF;NEXT
+&a=asd
+&b=fgwef
+&c=%&a%+%&b%
+&c=%&a%%&b%
+$$(logadd.txt)
+HELP
+?
+?=6+3
+?%TIME%
+@#logmsgc=0
+?% log
+? %log%
+?% &log
+?@&logmsgs
+?% @&logmsgs
+unset
+help unset
+unset @&logmsgs
+unset (@&logmsgs)
+?% @&logmsgs[0]
+unset(@&logmsgc)
+unset(@&logmsgs)
+@&log=SOLD
+?% @&logmsgs[1]
+?% @&logmsgs[2]
+@&log=wdx
+@&log=wvvxcv
+@&log=wvasdx
+@&log=gem
+@&log=gew
+@&log=CHA
+@&log=CHAL#slimefarmer
+@&log=SOLD#GLASS GLASS#1#10
+$$<"logadd.txt">
+$$<logadd.txt>
+$$<logadd.txt>;
+?% @&log
+POPUPMESSAGE(aaa)
+logto(signshop.txt,"hi")
+Unset(logmsgs)
+Unset(logmsgc)
+Unset(log)
+Unset(&log)
+Unset(@&logmsgs)
+Unset(@&logmsgs[0])
+Unset(@&logmsgs[1])
+Unset(@&logmsgs[2])
+Unset(@&logmsgs[3])
+Unset(@&logmsgs[4])
+Unset(@&logmsgs[5])
+Unset(@&log)
+Unset(@#logmsgc)
+&a=""
+if(%&a%=="")echo a;else echo b;endif
+if(%&a%=="")echo a;else;echo b;endif
+if(%&a%=="")log(a);else;log(b);endif
+if(%&a%=="")log(a);else;log(b);endif;
+if(%&a%=="");log(a);else;log(b);endif;
+if(%&a%=="a");log(a);else;log(b);endif;
+Unset(@&logmsgs[6])
+ACHIEVEMENTGET
+ACHIEVEMENTGET(aa)
+ACHIEVEMENTGET(aa,1)
+ACHIEVEMENTGET(aa,2)
+ACHIEVEMENTGET(aa,20)
+ACHIEVEMENTGET(aa,200)
+ACHIEVEMENTGET(aa,dirt)
+ACHIEVEMENTGET(aa,Glass)
+ACHIEVEMENTGET(aa,enchant_book)
+ACHIEVEMENTGET(aa,book)
+?% HITID

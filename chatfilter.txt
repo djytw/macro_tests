@@ -1,0 +1,131 @@
+
+&t="[&b%TIME%&r]";
+MODIFY(%&t%%CHAT%);
+&c=%CHATCLEAN%;
+
+//player filter
+IFCONTAINS(%&c%,"玩家]young_dream");FILTER;ENDIF;
+IFCONTAINS(%&c%,"玩家]xingchen");FILTER;ENDIF;
+IFCONTAINS(%&c%,"玩家]myworlf");FILTER;ENDIF;
+
+
+//no filter for chat msg
+IFCONTAINS(%&c%,"[空岛]");PASS;ENDIF;
+
+//challenge
+IFCONTAINS(%&c%,"点击来完成这个挑战");FILTER;ENDIF;
+IFCONTAINS(%&c%,"你完成了挑战:");FILTER;ENDIF;
+IFCONTAINS(%&c%,"物品奖励:");FILTER;ENDIF;
+IFCONTAINS(%&c%,"经验奖励:");FILTER;ENDIF;
+IFCONTAINS(%&c%,"货币奖励:");FILTER;ENDIF;
+IFCONTAINS(%&c%,"历经千辛万苦终于完成了");
+    MATCH(%&c%,".{12}(\w+)",{&cha});
+    //MODIFY(%&t%&echallenge &b%&cha% &ecompleted);
+    @&log="CHAL#%&cha%";
+    $$<logadd.txt>;
+    FILTER;
+ENDIF;
+IFCONTAINS(%&c%,"身上的物品不足以完成挑战");
+    WAIT(4s);
+    LOG("aaa");
+    FILTER;
+ENDIF;
+
+//signshop
+IFCONTAINS(%&c%,"SignShop");
+    LOGTO(signshop.txt,%&t%%CHAT%);
+    IFCONTAINS(%&c%,"djytw");FILTER;ENDIF;
+    IFCONTAINS(%&c%,"donate");FILTER;ENDIF;
+    IFCONTAINS(%&c%,"Donate");FILTER;ENDIF;
+    IFCONTAINS(%&c%,"You need to be holding an item for the shop to be able to take it!");FILTER;ENDIF;
+    IFCONTAINS(%&c%,"This shop contains  @");FILTER;ENDIF;
+    IFCONTAINS(%&c%,"You need to be holding");FILTER;ENDIF;
+    IFCONTAINS(%&c%,"This shop contains");
+        MATCH(%&c%,"contains ([^@\(]+)",{&item});
+        MODIFY(%&t%[&7商店&f] &b%&item%);
+    ENDIF;
+    IFMATCHES(%&c%,"buy|sell");
+        IFCONTAINS(%&c%,"with");
+            MATCH(%&c%,"(buy) (.*) with ([^?]*)",{&temp,&item,&price});
+            MODIFY(%&t%[&7商店&f][&dtrade&r] &e%&price% &r-> &e%&item%);
+        ELSE;
+            MATCH(%&c%,"(buy|sell) (.*) for ([^?]*)",{&temp,&item,&price});
+            MODIFY(%&t%[&7商店&f][&d%&temp%&r] &e%&item% &r/ &e%&price%);
+        ENDIF;
+    ENDIF;
+    IFCONTAINS(%&c%,"You are not restricted");
+        MODIFY(%&t%[&7商店&f] &elock ok.);
+    ENDIF;
+    IFCONTAINS(%&c%,"You have sold");
+        MATCH(%&c%,"You have sold (\d+) (.+(?= for)) for \$([,\d]+)",{&num,&item,&price});
+        //MODIFY(%&t%[shop][&cSOLD&r] %&num%x&e%&item%&r=&e%&price%);
+        @&log="SOLD#%&item%#%&num%#%&price%";
+	$$<logadd.txt>;
+	FILTER;
+    ENDIF;
+    IFCONTAINS(%&c%,"You have bought");
+        MATCH(%&c%,"You have bought (\d+) (.+(?= for)) for \$([,\d]+)",{&num,&item,&price});
+        @&log="BUY#%&item%#%&num%#%&price%";
+	$$<logadd.txt>;
+	FILTER;
+    ENDIF;
+    IFCONTAINS(%&c%,"sold you");
+        MATCH(%&c%,"(\w+) sold you (\d+) (.+(?= for)) for \$([,\d]+)",{&name,&num,&item,&price});
+        @&log="ACQU#%&name%#%&item%#%&num%#%&price%";
+	$$<logadd.txt>;
+	FILTER;
+    ENDIF;
+    IFCONTAINS(%&c%,"from you");
+        MATCH(%&c%,"(\w+) bought (\d+) (.+(?= for)) for \$([,\d]+) from you",{&name,&num,&item,&price});
+        @&log="SALE#%&name%#%&item%#%&num%#%&price%";
+	$$<logadd.txt>;
+	FILTER;
+    ENDIF;
+ENDIF;
+//sitting
+IFCONTAINS(%&c%,"You are now sitting");FILTER;ENDIF;
+IFCONTAINS(%&c%,"You are no longer sitting");FILTER;ENDIF;
+//is warp 
+IFCONTAINS(%&c%,"前往你的空岛上");
+    MATCH(%&c%,".....(\w+)",{&visitor});
+    MODIFY(%&t%&l &c%&visitor% comes to your island);
+ENDIF;
+IFMATCHES(%&c%,"传送到 \w+ 的空岛");FILTER;ENDIF;
+
+//system
+IFCONTAINS(%&c%,"本世界不防爆防火，请小心苦力");FILTER;ENDIF;
+IFCONTAINS(%&c%,"准备传送...");FILTER;ENDIF;
+IFMATCHES(%&c%,"可视界面");FILTER;ENDIF;
+IFCONTAINS(%&c%,"正在回到上一位置.");FILTER;ENDIF;
+
+IFCONTAINS(%&c%,"joined the game");
+    MATCH(%&c%,"^(\w+)",{&user});
+    MODIFY(%&t%&e%&user% -> %@&serv%);
+ENDIF;
+IFCONTAINS(%&c%,"left the game");
+    MATCH(%&c%,"^(\w+)",{&user});
+    MODIFY(%&t%&e%&user% quit);
+ENDIF;
+IFMATCHES(%&c%,"\w+ went to \w+ server");
+    FILTER;
+ENDIF;
+IFMATCHES(%&c%,"\w+ came from \w+ server");
+    FILTER;
+ENDIF;
+IFCONTAINS(%&c%,"进入创造游戏");
+    MATCH(%&c%,"(\w+)",{&usr});
+    MODIFY(%&t%&e%&usr% -> creative);
+ENDIF;
+IFCONTAINS(%&c%,"进入生存游戏");
+    MATCH(%&c%,"(\w+)",{&usr});
+    MODIFY(%&t%&e%&usr% -> survival);
+ENDIF;
+IFCONTAINS(%&c%,"进入空岛游戏");
+    MATCH(%&c%,"(\w+)",{&usr});
+    MODIFY(%&t%&e%&usr% -> skyworld);
+ENDIF;
+IFCONTAINS(%&c%,"You are currently connected to ");
+    MATCH(%&c%,"to (\w+)",{&ser});
+    @&serv=%&ser%;
+ENDIF;
+//END
