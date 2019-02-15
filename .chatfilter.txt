@@ -5,23 +5,23 @@
 
 # Filter for config []
 Filter[].Script=$$<chatfilter.txt><BR />
-Filter[].Counters=flag=0,len=50,numol=128,count=9,i=1,numo=1,j=1,k=3,m=10
+Filter[].Counters=flag=0,len=50,numol=128,count=12,i=1,numo=1,j=1,k=2,m=3
 Filter[].String[ser]=skyland
-Filter[].String[item]=Iron Ingot
+Filter[].String[item]=1 Apple
 Filter[].String[temp]=Buy
-Filter[].String[c]=Any names suffixed by * are 'last seen names' and may not be up to date.
+Filter[].String[c]=本世界不防爆防火，请小心苦力怕.
 Filter[].String[num]=1
-Filter[].String[count]=9
-Filter[].String[out]=&7[&6任务&7] &f完成 &e&ldelicioussoup&f。&a&l(x3)\n&7[&6任务&7] &f完成 &e&lslimefarmer&f。&a&l(x38)\n&7[&6出售&7] &f&lMidgetMan232&f 购买了&b&lCoal Block&f，每&e1&f个&e$15&f。&a&l(x20)\n&7[&6出售&7] &f&lMiriel_01&f 购买了&b&lIron Ingot&f，每&e1&f个&e$10&f。&a&l(x9)\n\n\n\n\n\n\n
+Filter[].String[count]=12
+Filter[].String[out]=&7[&6购买&7] &b&lDirt&f，每&e64&f个&e$640&f。&a&l(x4)\n&7[&6购买&7] &b&lObsidian&f，每&e64&f个&e$5,000&f。&a&l(x1)\n&7[&6出售&7] &b&lDirt&f，每&e1&f个&e$11&f。&a&l(x12)\n\n\n\n\n\n\n\n
 Filter[].String[str]=&count}
-Filter[].String[t]=[&b00:40:37&r]
-Filter[].String[usr]=zhe123
-Filter[].String[chat]= EnderBreaker2L 进入生存游戏.
-Filter[].String[price]=10
-Filter[].String[name]=Miriel_01
+Filter[].String[t]=[&b23:46:56&r]
+Filter[].String[usr]=MycroftCooper
+Filter[].String[chat]= EnderBreaker2L 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷戏.
+Filter[].String[price]=$5
+Filter[].String[name]=BORBERDRUM
 Filter[].String[numo]=127
 Filter[].String[visitor]=djytw
-Filter[].String[cha]=slimefarmer
-Filter[].String[user]=Chelsia_phil
-Filter[].String[cons]=8
+Filter[].String[cha]=maestro
+Filter[].String[user]=djytw
+Filter[].String[cons]=11
 

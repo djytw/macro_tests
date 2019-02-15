@@ -249,7 +249,7 @@ script.warn.permissions.enabled=0
 Macro[13].Macro=$${FOR(#i,0,10);UNSET(@&logmsgs[%#i%]);NEXT;UNSET(@#logmsgc);UNSET(@&log);SETLABEL(ingametest,"");}$$
 
 # KEY_BACK
-Macro[14].Macro=$${SETLABEL(ingametest,"")}$$
+Macro[14].Macro=$${placesign([usb],mae)}$$
 
 # KEY_Y
 Macro[21].Macro=$$<antidrop.txt>
@@ -263,6 +263,9 @@ Macro[24].Macro=/l yujinyu|$$<antidrop.txt>
 # KEY_P
 Macro[25].Macro=/spawn
 
+# KEY_G
+Macro[34].Macro=$$<buy_record.txt>
+
 # KEY_H
 Macro[35].Macro=/home
 
@@ -271,6 +274,9 @@ Macro[37].Macro=/is w djytw
 
 # KEY_L
 Macro[38].Macro=/logout
+
+# KEY_V
+Macro[47].Macro=$$<tidy_record.txt>
 
 # KEY_B
 Macro[48].Macro=/back
@@ -285,13 +291,13 @@ Macro[52].Macro=$${SLOT(2);GETSLOTITEM(1,#i);LOG(%#i%);}$$
 Macro[64].Macro=$${#a=isrunning(f6);if(%#a%==0);do;key(use);loop;else;stop(f6);endif;}$$
 
 # KEY_F7
-Macro[65].Macro=$${DO;KEY(USE);LOOP;}$$
+Macro[65].Macro=$${DO;KEY(USE);WAIT(1t);LOOP;}$$
 
 # KEY_F8
-Macro[66].Macro=$${DO;KEY(attack);WAIT(3);LOOP}$$
+Macro[66].Macro=$${log(%CHAT%)}$$
 
 # KEY_F9
-Macro[67].Macro=$${DO;IF(%HUNGER%<19);SLOT(8);LOOK(+180,+0,+0);WAIT(1t);FOR(#i,0,50);KEY(USE);NEXT;LOOK(+180,+0,+0);WAIT(1t);ENDIF;SLOT(9);WAIT(1);KEY(attack);WAIT(100ms);SLOT(1);WAIT(50ms);KEY(use);WAIT(50ms);LOOP}$$
+Macro[67].Macro=$${DO;IF(%HUNGER%<19);SLOT(8);LOOK(+180,+0,+0);WAIT(1t);FOR(#i,0,50);KEY(USE);NEXT;LOOK(+180,+0,+0);WAIT(1t);ENDIF;SLOT(9);WAIT(1);KEY(attack);WAIT(100ms);SLOT(1);WAIT(50ms);KEY(use);KEY(use);KEY(use);WAIT(50ms);LOOP}$$
 
 # KEY_NUMPAD4
 Macro[75].Macro=/c c su|/c c su
@@ -314,9 +320,6 @@ Macro[81].Macro=/c c pu|/c c me
 # KEY_DECIMAL
 Macro[83].Macro=/c c cob|/c c cob|/c c cob|/c c cob|/c c cob
 
-# KEY_DELETE
-Macro[211].Macro=/c c cob|/c c cob|/c c cob|/c c cob|/c c cob|/c c cob|/c c cob|/c c cob|/c c cob|/c c cob
-
 # CONTROL_BUTTON 257
 Macro[257].Macro=/dxl play survival_money01
 
@@ -325,6 +328,12 @@ Macro[258].Macro=/dxl group create djytw
 
 # CONTROL_BUTTON 259
 Macro[259].Macro=/m djytw $$0
+
+# CONTROL_BUTTON 262
+Macro[262].Macro=/is h
+
+# CONTROL_BUTTON 264
+Macro[264].Macro=/is w djytw
 
 # EVENT_ONJOINGAME
 Macro[1000].Macro=/l yujinyu|$$<antidrop.txt>
@@ -336,7 +345,7 @@ Macro[1001].Mode=conditional
 
 # EVENT_ONHEALTHCHANGE
 Macro[1002].Macro=$${IIF(%HEALTH%<12,"/back");IIF(%HEALTH%<8,"/logout");}$$
-Macro[1002].OnKeyUp=$${IF(%HEALTH%==0);IIF(1,"/is w djytw");DO(20);RESPAWN();WAIT(1t);WHILE(%HEALTH%==0);ENDIF;}$$
+Macro[1002].OnKeyUp=$${IF(%HEALTH%==0);IIF(1,"/is h");DO(20);RESPAWN();WAIT(1t);WHILE(%HEALTH%==0);ENDIF;}$$
 Macro[1002].Condition=%DIMENSION%="NETHER"
 Macro[1002].Mode=conditional
 
@@ -346,6 +355,7 @@ Macro[1005].Condition=%DIMENSION%="NETHER"
 
 # EVENT_ONPICKUPITEM
 Macro[1013].Macro=$${TIME(&a,"H:m:s");LOG("&7[&fPICKUP&7][&e%&a%&7]&f %PICKUPID% x%PICKUPAMOUNT%")}$$
+Macro[1013].OnKeyUp=$${KEY(USE)}$$
 Macro[1013].Condition=01
 Macro[1013].Mode=conditional
 Macro[1013].Global=1

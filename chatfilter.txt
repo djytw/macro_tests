@@ -3,12 +3,6 @@
 MODIFY(%&t%%CHAT%);
 &c=%CHATCLEAN%;
 
-//player filter
-IFCONTAINS(%&c%,"Íæ¼Ò]young_dream");FILTER;ENDIF;
-IFCONTAINS(%&c%,"Íæ¼Ò]xingchen");FILTER;ENDIF;
-IFCONTAINS(%&c%,"Íæ¼Ò]myworlf");FILTER;ENDIF;
-
-
 //no filter for chat msg
 IFCONTAINS(%&c%,"[¿Õµº]");PASS;ENDIF;
 
